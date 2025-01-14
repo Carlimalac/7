@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Malacrida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Basic styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .section.white {
+      background-color: white;
+      color: black;
+    }
+    .section.black {
+      background-color: black;
+      color: white;
+    }
+    .section .content {
+      max-width: 1000px;
+      width: 100%;
+      text-align: left;
+      font-size: 17px; /* Decreased font size by 3 tiny bits */
+    }
+    .section h1 {
+      font-size: 50px;
+      font-weight: bold; /* Titles are now bold */
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      border-right: 4px solid white;
+      animation: typing 3s steps(25) 1s forwards, blink 0.75s step-end infinite;
+    }
+    /* Animation for typing effect */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    /* Cursor blink effect */
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+    .section img {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+    #projects .content a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    #tools ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #tools ul li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    #tools ul li a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 18px;
+    }
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .section h1 {
+        font-size: 28px;
+      }
+      .section .content {
+        font-size: 16px; /* Adjusted font size for mobile */
+        padding: 15px;
+      }
+      .section {
+        padding: 10px;
+      }
+      #projects .content a {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .section h1 {
+        font-size: 24px;
+      }
+      .section .content {
+        font-size: 14px; /* Adjusted font size for small screens */
+        padding: 10px;
+      }
+      .section {
+        padding: 5px;
+      }
+      #projects .content a {
+        font-size: 14px;
+      }
+    }
+
+    /* Arrow button styling */
+    .arrow-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s;
+    }
+    .arrow-btn:hover {
+      color: #444; /* Change color on hover for better interactivity */
+    }
+    .arrow-btn:before {
+      content: "→"; /* Right arrow symbol */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1 (Black background with white text) -->
+  <div class="section black" id="section1">
+    <div class="content">
+      <h1 id="typedText">Hi, I'm Carla!</h1>
+      <p>I like building things for the web, with a focus on creative coding.</p>
+    </div>
+  </div>
+
+  <!-- Section 2 (White background with black text) -->
+  <div class="section white" id="section2">
+    <div class="content">
+      <h1>Creative Coding</h1>
+      <p>Creative coding is a field I find endlessly inspiring. I see it as a form of art, an interactive and fun way to express ideas and thoughts. It’s where technology meets imagination, allowing me to bring concepts to life.</p>
+    </div>
+  </div>
+
+  <!-- Section 3 (Black background with white text) -->
+  <div class="section black" id="section3">
+    <div class="content">
+      <h1>Software QA</h1>
+      <p>In addition to my creative coding focus, I have a solid foundation in Software Quality Assurance (QA). I understand the entire web development cycle, from planning to deployment, and I am competent in the role of testing throughout this process. This includes creating test plans, designing test cases, performing various types of testing, and tracking and reporting defects.</p>
+      <p>I take great care in ensuring software meets both functional and user requirements. My attention to detail drives me to identify even the smallest inconsistencies, ensuring that everything works seamlessly.</p>
+      <p>I am skilled at diagnosing issues, understanding their root causes, and providing actionable feedback for resolution, additionally, I create clear, concise documentation and communicate effectively.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 (White background with black text) -->
+  <div class="section white" id="section4">
+    <div class="content">
+      <h1>Background</h1>
+      <p>I was born and raised in Buenos Aires, Argentina, where I studied Art Direction and worked in the field for several years, which played a key role in developing my creative mindset. My passion for photography and film has always influenced my approach to both art and life.</p>
+      <p>I have lived in Barcelona for six years, and for the past year, I have been living in Berlin. These two cities have shaped my life in many ways, and through these experiences, I’ve been able to continuously grow, broadening both my skills and horizons while expanding my network. The journey has been a source of inspiration and personal development.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 (Black background with white text) -->
+  <div class="section black" id="tools">
+    <div class="content">
+      <h1>Tools I Use</h1>
+      <p>I work with a diverse set of tools to create engaging projects.</p>
+      <ul>
+        <li><strong>Creative Coding and Web Development:</strong> HTML, CSS, JavaScript, p5.js</li>
+        <li><strong>Design & Creative Tools:</strong> Adobe Creative Cloud, Figma</li>
+        <li><strong>QA / Testing:</strong> Jira, Trello, TestRail, Postman, Selenium</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 6 (White background with black text) -->
+  <div class="section white" id="projects">
+    <div class="content">
+      <h1>Projects</h1>
+      <p></p>
+      <div>
+        <a href="https://www.weirdwarp.xyz" class="project-link">Weird Warp</a><br>
+        <a href="https://www.infiniteoscillation.online" class="project-link">Infinite Oscillation</a><br>
+        <a href="https://www.pixelchaos.art" class="project-link">Pixel Chaos</a><br>
+        <a href="https://www.soundshapes.xyz" class="project-link">Sound Shapes</a><br>
+        <a href="https://wwww.dsdfsdfsdf.com" class="project-link">Cat Synth</a><br>
+        <a href="https://www.doodledrawapp.online" class="project-link">Doodle Draw App</a><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7 (Black background with white text) -->
+  <div class="section black" id="section7">
+    <div class="content">
+      <h1>Let’s collaborate</h1>
+      <p>Whether it’s crafting interactive art, building web experiences, or ensuring quality in software. Feel free to reach out, I’d love to hear from you.</p>
+    </div>
+  </div>
+
+  <!-- Section 8 (White background with black text) -->
+  <div class="section white" id="section8">
+    <div class="content">
+      <h1>Contact me</h1>
+      <p><a href="mailto:malacrida.carla@gmail.com" style="color: black; text-decoration: none;">malacrida.carla@gmail.com</a></p>
+    </div>
+    <!-- Arrow button to link (to be updated later) -->
+    <a href="your-link-here" class="arrow-btn"></a>
+  </div>
+
+  <script>
+    // Typing animation for the "Hi, I'm Carla!" text
+    document.addEventListener("DOMContentLoaded", function () {
+      var typedText = document.getElementById("typedText");
+      var text = typedText.innerHTML;
+      typedText.innerHTML = ""; // Clear the text initially
+      var i = 0;
+      
+      function typeText() {
+        if (i < text.length) {
+          typedText.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeText, 100); // Adjust the speed of typing here
+        }
+      }
+      
+      typeText();
+    });
+  </script>
+  
+</body>
+</html>
