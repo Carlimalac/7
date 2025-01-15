@@ -27,7 +27,7 @@
         }
 
         .content h1 {
-            font-size: 2rem;
+            font-size: 32px; 
             margin: 0;
         }
 
@@ -35,13 +35,29 @@
             display: inline-block;
             margin-left: 10px;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 2vw; 
             color: white;
             font-weight: bold;
         }
 
         .arrow-button:hover {
             color: #ccc;
+        }
+
+        @media (max-width: 600px) {
+            .content h1 {
+                font-size: 8vw; 
+            }
+            .arrow-button {
+                font-size: 4vw; 
+            }
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -56,20 +72,20 @@
         let time = 0;
 
         function setup() {
-            createCanvas(windowWidth, windowHeight);
+            createCanvas(window.innerWidth, window.innerHeight);
             frameRate(60);
 
-            // Create multiple vibrating lines that float around the canvas
-            for (let i = 0; i < 500; i++) {  // Increased from 100 to 500
-                let colorChoice = random() < 0.5 ? [255, 182, 193] : [64, 224, 208]; // Light Pink or Turquoise
-                lines.push(new VibratingLine(random(width), random(height), random(20, 60), colorChoice));
+            
+            for (let i = 0; i < 500; i++) {
+                let colorChoice = random() < 0.5 ? [255, 182, 193] : [64, 224, 208];
+                lines.push(new Line(random(width), random(height), random(20, 60), colorChoice));
             }
         }
 
         function draw() {
-            background(0);  // Clear screen with black background
+            background(0);
 
-            // Update and display each vibrating line
+            
             for (let i = 0; i < lines.length; i++) {
                 lines[i].update();
                 lines[i].display();
@@ -78,34 +94,35 @@
             time += 0.02;
         }
 
-        class VibratingLine {
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+
+        class Line {
             constructor(x, y, length, colorChoice) {
                 this.x = x;
                 this.y = y;
                 this.length = length;
                 this.angle = random(TWO_PI);
-                this.speed = random(2, 5);  // Speed of horizontal movement
-                this.amplitude = random(10, 30); // Amplitude for vertical vibration
-                this.offset = random(0, 100);  // Starting position offset for vibration
-                this.direction = random() < 0.5 ? 1 : -1; // Random initial direction
-                this.colorChoice = colorChoice; // Store the color choice for the line
+                this.speed = random(2, 5);
+                this.amplitude = random(10, 30);
+                this.offset = random(0, 100);
+                this.direction = random() < 0.5 ? 1 : -1;
+                this.colorChoice = colorChoice;
             }
 
             update() {
-                // Horizontal movement
                 this.x += this.direction * this.speed;
-                
-                // Reverse direction when the line reaches the edges of the screen
+
                 if (this.x > width || this.x < 0) {
                     this.direction *= -1;
                 }
 
-                // Vibrate vertically (sine wave)
                 this.y += sin(time * 0.1 + this.offset) * this.amplitude;
             }
 
             display() {
-                stroke(this.colorChoice); // Use the color assigned to this line
+                stroke(this.colorChoice);
                 strokeWeight(2);
                 line(this.x, this.y, this.x + cos(this.angle) * this.length, this.y + sin(this.angle) * this.length);
             }
