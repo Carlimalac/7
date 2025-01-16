@@ -6,12 +6,13 @@
   <title>Carla Malacrida</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* Basic styling */
+    
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
     }
     .section {
       height: 100vh;
@@ -22,6 +23,7 @@
       padding: 20px;
       box-sizing: border-box;
       position: relative;
+      transition: background-color 0.3s ease;
     }
     .section.white {
       background-color: white;
@@ -35,18 +37,19 @@
       max-width: 1000px;
       width: 100%;
       text-align: left;
-      font-size: 17px; /* Decreased font size by 3 tiny bits */
+      font-size: 17px;
+      transition: all 0.3s ease;
     }
     .section h1 {
       font-size: 50px;
-      font-weight: bold; /* Titles are now bold */
+      font-weight: bold;
       white-space: nowrap;
       overflow: hidden;
       width: 0;
       border-right: 4px solid white;
       animation: typing 3s steps(25) 1s forwards, blink 0.75s step-end infinite;
     }
-    /* Animation for typing effect */
+    
     @keyframes typing {
       from {
         width: 0;
@@ -55,7 +58,7 @@
         width: 100%;
       }
     }
-    /* Cursor blink effect */
+    
     @keyframes blink {
       50% {
         border-color: transparent;
@@ -65,6 +68,10 @@
       width: 100%;
       height: auto;
       margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+    .section img:hover {
+      transform: scale(1.05); 
     }
     #projects .content a {
       text-decoration: none;
@@ -72,6 +79,21 @@
       font-size: 18px;
       margin-bottom: 10px;
       display: block;
+      position: relative;
+      padding-left: 30px;
+      transition: color 0.3s ease;
+    }
+    #projects .content a:hover {
+      color: #FF80BF; 
+    }
+    #projects .content a:hover::before {
+      content: '→'; 
+      position: absolute;
+      left: 0;
+      font-size: 20px;
+      color: #FF80BF; 
+      top: 50%;
+      transform: translateY(-50%);
     }
     #tools ul {
       list-style-type: none;
@@ -81,19 +103,24 @@
     #tools ul li {
       margin: 10px 0;
       font-size: 18px;
+      transition: transform 0.3s ease;
     }
     #tools ul li a {
       text-decoration: none;
       color: inherit;
       font-size: 18px;
     }
-    /* Mobile responsiveness */
+    #tools ul li:hover {
+      transform: translateX(10px); 
+    }
+
+    
     @media (max-width: 768px) {
       .section h1 {
         font-size: 28px;
       }
       .section .content {
-        font-size: 16px; /* Adjusted font size for mobile */
+        font-size: 16px;
         padding: 15px;
       }
       .section {
@@ -108,7 +135,7 @@
         font-size: 24px;
       }
       .section .content {
-        font-size: 14px; /* Adjusted font size for small screens */
+        font-size: 14px;
         padding: 10px;
       }
       .section {
@@ -119,36 +146,79 @@
       }
     }
 
-    /* Arrow button styling */
+    
+    .scroll-down {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      color: white;
+      animation: bounce 1.5s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .scroll-down:hover {
+      transform: translateX(-50%) translateY(-10px); 
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-5%);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-2%);
+      }
+    }
+
+    
     .arrow-btn {
       position: absolute;
       bottom: 20px;
       right: 20px;
-      font-size: 30px;
-      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: white;
       text-decoration: none;
-      color: black;
-      transition: color 0.3s;
+      font-size: 30px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
+
+    .arrow-btn::before {
+      content: "↓";
+      font-size: 30px;
+    }
+
     .arrow-btn:hover {
-      color: #444; /* Change color on hover for better interactivity */
+      background-color: #333;
+      transform: scale(1.1); 
     }
-    .arrow-btn:before {
-      content: "→"; /* Right arrow symbol */
-    }
+
   </style>
 </head>
 <body>
 
-  <!-- Section 1 (Black background with white text) -->
+  
   <div class="section black" id="section1">
     <div class="content">
       <h1 id="typedText">Hi, I'm Carla!</h1>
       <p>I like building things for the web, with a focus on creative coding.</p>
+      
+      <div class="scroll-down">
+        ↓
+      </div>
     </div>
   </div>
 
-  <!-- Section 2 (White background with black text) -->
+  
   <div class="section white" id="section2">
     <div class="content">
       <h1>Creative Coding</h1>
@@ -156,7 +226,7 @@
     </div>
   </div>
 
-  <!-- Section 3 (Black background with white text) -->
+  
   <div class="section black" id="section3">
     <div class="content">
       <h1>Software QA</h1>
@@ -166,7 +236,7 @@
     </div>
   </div>
 
-  <!-- Section 4 (White background with black text) -->
+  
   <div class="section white" id="section4">
     <div class="content">
       <h1>Background</h1>
@@ -175,11 +245,11 @@
     </div>
   </div>
 
-  <!-- Section 5 (Black background with white text) -->
+  
   <div class="section black" id="tools">
     <div class="content">
       <h1>Tools I Use</h1>
-      <p>I work with a diverse set of tools to create engaging projects.</p>
+      <p></p>
       <ul>
         <li><strong>Creative Coding and Web Development:</strong> HTML, CSS, JavaScript, p5.js</li>
         <li><strong>Design & Creative Tools:</strong> Adobe Creative Cloud, Figma</li>
@@ -188,7 +258,7 @@
     </div>
   </div>
 
-  <!-- Section 6 (White background with black text) -->
+  
   <div class="section white" id="projects">
     <div class="content">
       <h1>Projects</h1>
@@ -198,13 +268,13 @@
         <a href="https://www.infiniteoscillation.online" class="project-link">Infinite Oscillation</a><br>
         <a href="https://www.pixelchaos.art" class="project-link">Pixel Chaos</a><br>
         <a href="https://www.soundshapes.xyz" class="project-link">Sound Shapes</a><br>
-        <a href="" class="project-link">Cat Synth</a><br>
-        <a href="" class="project-link">Doodle Draw App</a><br>
+        <a href="https://wwww.catsynth.online" class="project-link">Cat Synth</a><br>
+        <a href="https://www.doodledrawapp.online" class="project-link">Doodle Draw App</a><br>
       </div>
     </div>
   </div>
 
-  <!-- Section 7 (Black background with white text) -->
+  
   <div class="section black" id="section7">
     <div class="content">
       <h1>Let’s collaborate</h1>
@@ -212,29 +282,29 @@
     </div>
   </div>
 
-  <!-- Section 8 (White background with black text) -->
+  
   <div class="section white" id="section8">
     <div class="content">
       <h1>Contact me</h1>
       <p><a href="mailto:malacrida.carla@gmail.com" style="color: black; text-decoration: none;">malacrida.carla@gmail.com</a></p>
     </div>
-    <!-- Arrow button to link (to be updated later) -->
+    
     <a href="bye.html" class="arrow-btn"></a>
   </div>
 
   <script>
-    // Typing animation for the "Hi, I'm Carla!" text
+    
     document.addEventListener("DOMContentLoaded", function () {
       var typedText = document.getElementById("typedText");
       var text = typedText.innerHTML;
-      typedText.innerHTML = ""; // Clear the text initially
+      typedText.innerHTML = ""; 
       var i = 0;
       
       function typeText() {
         if (i < text.length) {
           typedText.innerHTML += text.charAt(i);
           i++;
-          setTimeout(typeText, 100); // Adjust the speed of typing here
+          setTimeout(typeText, 100); 
         }
       }
       
